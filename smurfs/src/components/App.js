@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Smurfs from './Smurfs.js';
-import NewSmurfWait from './NewSmurfWait';
 
 import { connect } from "react-redux";
 import { getData } from "../actions";
