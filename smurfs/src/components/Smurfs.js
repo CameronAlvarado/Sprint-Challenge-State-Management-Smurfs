@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Smurf from './Smurf';
 
 export default function Smurfs({ data }) {

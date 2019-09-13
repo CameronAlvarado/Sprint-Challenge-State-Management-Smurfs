@@ -4,7 +4,8 @@ import {
     FETCHING_DATA_FAILURE,
 
     SENDING_DATA_START,
-    SENDING_DATA_SUCCESS
+    SENDING_DATA_SUCCESS,
+    SENDING_DATA_FAILURE
   } from "../actions";
   
   const initialState = {
@@ -28,6 +29,12 @@ import {
           isFetching: false,
           data: action.payload
         };
+      case FETCHING_DATA_FAILURE:
+        return {
+          ...state,
+          isFetching: false,
+          error: "Data did not fetch"
+        }
       case SENDING_DATA_START:
         return {
           ...state,
@@ -40,6 +47,12 @@ import {
           isFetching: false,
           dataSend: action.payload
         };
+      case SENDING_DATA_FAILURE:
+        return {
+          ...state,
+          isFetching: false,
+          error: "Data did not send"
+        }
       default:
         return state;
     }

@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React from "react";
 import Smurfs from './Smurfs.js';
 import NewSmurf from './NewSmurf';
 
