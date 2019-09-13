@@ -8,6 +8,7 @@ import {
   } from "../actions";
   
   const initialState = {
+    dataSend: null, // <--- major blocker
     data: null,
     isFetching: false,
     error: ""
@@ -37,7 +38,7 @@ import {
         return {
           ...state,
           isFetching: false,
-          data: action.payload
+          dataSend: action.payload
         };
       default:
         return state;
