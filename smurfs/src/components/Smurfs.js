@@ -9,7 +9,7 @@ export default function Smurfs({ data }) {
         <div className="smurf-box">
             {data.map( smurf => {
                 return (
-                 <Smurf data={smurf} />
+                 <Smurf data={smurf} key={smurf.id} />
                 )
             })}
         </div>
