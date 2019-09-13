@@ -2,8 +2,6 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { sendData } from '../actions';
-import { getData } from "../actions";
-// import NewPost from './NewPost';
 
 class NewSmurf extends React.Component {
     constructor() {
@@ -25,7 +23,6 @@ class NewSmurf extends React.Component {
       e.preventDefault();
       if (this.state.name.trim() && this.state.age.trim() && this.state.height.trim()) {
         this.props.onAddPost(this.state);
-        this.props.onGetPost();
         this.handleReset();
       }
     };
@@ -89,9 +86,6 @@ const mapDispatchToProps = dispatch => {
     return {
       onAddPost: post => {
         dispatch(sendData(post));
-      },
-      onGetPost: post => {
-        dispatch(getData(post));
       }
     };
   };

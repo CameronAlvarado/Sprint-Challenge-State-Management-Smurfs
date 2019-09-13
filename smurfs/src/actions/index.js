@@ -30,15 +30,10 @@ export const sendData = ({name, age, height }) => dispatch => {
       height
     })
     .then(res => {
-      console.log(res);
+      console.log(res.data);
       dispatch({ 
         type: SENDING_DATA_SUCCESS, 
-        payload: {
-          name: res.name,
-          age: res.age,
-          height: res.height,
-          id: res.id
-        } 
+        payload: res.data
       });
     })
     .catch(err => {

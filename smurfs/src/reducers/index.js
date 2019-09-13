@@ -45,7 +45,7 @@ import {
         return {
           ...state,
           isFetching: false,
-          dataSend: action.payload
+          data: action.payload
         };
       case SENDING_DATA_FAILURE:
         return {

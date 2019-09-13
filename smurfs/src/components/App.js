@@ -8,16 +8,18 @@ import "./App.css";
 import NewSmurf from "./NewSmurf.js";
 
 const App = ({ getData, data, isFetching }) => {
+
+
+  useEffect(() => {
+    // run action creator when the component mounts
+    getData();
+  }, [getData]);
+
+  if (isFetching) {
+    return <h3>Fetching smurfs</h3>;
+  }
+
 console.log(data);
-
-useEffect(() => {
-  // run action creator when the component mounts
-  getData();
-}, [getData]);
-
-if (isFetching) {
-  return <h3>Fetching smurfs</h3>;
-}
 
   return (
     <div className="App">
