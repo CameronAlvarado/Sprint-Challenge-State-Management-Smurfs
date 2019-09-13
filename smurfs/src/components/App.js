@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import Smurfs from './Smurfs.js';
-import NewSmurf from './NewSmurf';
+import NewSmurfWait from './NewSmurfWait';
 
 import { connect } from "react-redux";
 import { getData } from "../actions";
 
 import "./App.css";
+import NewSmurf from "./NewSmurf.js";
 
-function App({ getData, data, isFetching }) {
+const App = ({ getData, data, isFetching }) => {
 console.log(data);
 
 useEffect(() => {
@@ -16,15 +17,15 @@ useEffect(() => {
 }, [getData]);
 
 if (isFetching) {
-  return <h3>Fetching quote for ya!</h3>;
+  return <h3>Fetching smurfs</h3>;
 }
 
   return (
     <div className="App">
       <h1>SMURFS! 2.0 W/ Redux</h1>
       {/* <button onClick={getData}>Click me to update data</button> */}
-      <Smurfs data={data} />
       <NewSmurf />
+      <Smurfs data={data} />
     </div>
   );
 }

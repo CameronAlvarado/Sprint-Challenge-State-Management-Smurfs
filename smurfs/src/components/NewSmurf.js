@@ -6,11 +6,14 @@ import { getData } from "../actions";
 // import NewPost from './NewPost';
 
 class NewSmurf extends React.Component {
-    state = {
-      name: '',
-      age: '',
-      height: ''
-    };
+    constructor() {
+        super();
+        this.state = {
+            name: '',
+            age: '',
+            height: ''
+          };
+        };
   
     handleInputChange = e => {
       this.setState({
@@ -22,8 +25,8 @@ class NewSmurf extends React.Component {
       e.preventDefault();
       if (this.state.name.trim() && this.state.age.trim() && this.state.height.trim()) {
         this.props.onAddPost(this.state);
+        this.props.onGetPost();
         this.handleReset();
-        // getData();
       }
     };
   
@@ -70,7 +73,7 @@ class NewSmurf extends React.Component {
               </input>
             </div>
             <div className="form-group">
-              <button type="submit" className="btn btn-primary">Add Post</button>
+              <button type="submit" className="btn btn-primary" >Add Post</button>
               <button type="button" className="btn btn-warning" onClick={ this.handleReset }>
                 Reset
               </button>
@@ -86,7 +89,9 @@ const mapDispatchToProps = dispatch => {
     return {
       onAddPost: post => {
         dispatch(sendData(post));
-        dispatch(getData());
+      },
+      onGetPost: post => {
+        dispatch(getData(post));
       }
     };
   };
