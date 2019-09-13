@@ -4,6 +4,10 @@ export const FETCHING_DATA_START = "FETCHING_DATA_START";
 export const FETCHING_DATA_SUCCESS = "FETCHING_DATA_SUCCESS";
 export const FETCHING_DATA_FAILURE = "FETCHING_DATA_FAILURE";
 
+export const SENDING_DATA_START = "SENDING_DATA_START";
+export const SENDING_DATA_SUCCESS = "SENDING_DATA_SUCCESS";
+export const SENDING_DATA_FAILURE = "SENDING_DATA_FAILURE";
+
 export const getData = () => dispatch => {
   dispatch({ type: FETCHING_DATA_START });
   axios
@@ -16,3 +20,29 @@ export const getData = () => dispatch => {
       dispatch({ type: FETCHING_DATA_FAILURE, payload: err.data.slip });
     });
 };
+
+export const sendData = ({name, age, height }) => dispatch => {
+  dispatch({ type: SENDING_DATA_START });
+  axios
+    .post("http://localhost:3333/smurfs", {
+      name,
+      age,
+      height
+    })
+    .then(res => {
+      console.log(res);
+      dispatch({ 
+        type: SENDING_DATA_SUCCESS, 
+        payload: {
+          name: res.name,
+          age: res.age,
+          height: res.height,
+          id: res.id
+        } 
+      });
+    })
+    .catch(err => {
+      dispatch({ type: SENDING_DATA_FAILURE, payload: err });
+    });
+};
+

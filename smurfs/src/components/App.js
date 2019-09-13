@@ -3,14 +3,17 @@ import Smurfs from './Smurfs.js';
 
 import { connect } from "react-redux";
 import { getData } from "../actions";
+import { sendData } from "../actions";
 
 import "./App.css";
 
-function App({ getData, data }) {
+function App({ getData, sendData, data }) {
+
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
-        <button onClick={getData}>Click me for data</button>
+        <button onClick={getData}>Click me to get data</button>
+        <button onClick={sendData}>Click me to send data</button>
         <Smurfs data={data} />
       </div>
     );
@@ -26,6 +29,6 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getData }
+  { getData, sendData }
 )(App);
 
