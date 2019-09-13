@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Smurf({ data }) {
-    if (!data || data===null) return <h2>Loading Smurfs...</h2>
+    if (!data) return <h2>Loading Smurfs...</h2>
 
     return(
         <div className="smurf">
