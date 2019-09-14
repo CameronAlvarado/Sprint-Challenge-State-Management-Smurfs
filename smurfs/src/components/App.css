@@ -9,7 +9,15 @@
 }
 
 .smurf {
-  border: 1px solid black;
-  width: 300px;
+  border: 1px solid white;
+  width: 250px;
   margin: 1px;
+}
+
+body {
+  background-color: black;
+}
+
+p, h1 {
+  color: white;
 }
